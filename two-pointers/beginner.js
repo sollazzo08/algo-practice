@@ -33,3 +33,47 @@ function isPalindrome(arr) {
   }
   return true;
 }
+
+/**
+ * Problem:
+ * Reverse an array in place using the two-pointer technique.
+ *
+ * Example:
+ * Input:  [1, 2, 3, 4]
+ * Output: [4, 3, 2, 1]
+ *
+ * Approach (Two-Pointers):
+ * - Set `left` at index 0 and `right` at the last index.
+ * - While left < right:
+ *     - Swap the values at the left and right positions using a temp variable.
+ *     - Move pointers inward (left++, right--).
+ * - Return the modified array.
+ *
+ * Pattern:
+ * Two-pointers moving inward with element swapping.
+ *
+ * Notes:
+ * Only ONE swap per loop is needed. Using two swaps (or wrong pointer movement)
+ * will break the logic.
+ */
+
+
+function reverseArray(arr) {
+  let temp;
+  let left = 0;
+  let right = arr.length - 1;
+
+  while(left < right){
+
+    temp = arr[right];
+    arr[right] = arr[left];
+    arr[left] = temp;
+
+    left++;
+    right--;
+  }
+
+  return arr;
+}
+
+
